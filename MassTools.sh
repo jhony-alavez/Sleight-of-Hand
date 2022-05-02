@@ -2,7 +2,7 @@
 #RUN WITH SUDO!
 #This is just a quick script I put together to install some of the tools that might be used on assessment. Because I'm lazy.
 #TODO Add phishihg template repo, and add payload encoding functions. Need to fix cme alias issue.
-
+#Stole this simple install script, it is not mine. I am just adding to it :) 
 
 function folder_check () {
 #Check to see if folder exists
@@ -31,10 +31,9 @@ git clone https://github.com/InteliSecureLabs/Linux_Exploit_Suggester.git
 git clone https://github.com/bitsadmin/wesng --depth 1
 #Don't forget to run wes.py --update to update the wesng database!
 git clone https://github.com/login-securite/DonPAPI
-
-
-
-
+git clone https://github.com/SecureAuthCorp/impacket
+git clone https://github.com/dirkjanm/mitm6
+git clone https://github.com/ly4k/Certipy
 
 cd $current_dir
 #apt downloads
