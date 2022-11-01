@@ -1,14 +1,22 @@
-#! /bin/bash
+#! /usr/bin/env bash
 #RUN WITH SUDO!
 #This is just a quick script I put together to install some of the tools that might be used on assessment. Because I'm lazy.
 #TODO Add phishihg template repo, and add payload encoding functions. Need to fix cme alias issue.
 #Stole this simple install script, it is not mine. I am just adding to it :) 
 
+RED='\033[0;31m' # Red color
+NC='\033[0m' # No Color
+
+if [ "$EUID" -ne 0 ] # Check if running as root
+  then echo -e "${RED}Error: Please run as root."
+  exit # if not exit script
+fi
+
 function folder_check () {
 #Check to see if folder exists
 if [ -d "/root/Desktop/tools/" ]
 then
-	echo "Sorry, looks like this script has already been ran! Exiting to avoid any confusion. Delete /root/Desktop/tools directory and try again."
+	echo -e "${RED}Error: Sorry, looks like this script has already been ran! Exiting to avoid any confusion. Delete ${NC}/root/Desktop/tools ${RED}directory and try again."
 	exit
 else
 	mkdir "/root/Desktop/tools/"
